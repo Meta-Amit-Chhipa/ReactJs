@@ -1,0 +1,16 @@
+.App {
+  text-align: center;
+}
+h4{
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 25px;
+}
+.StyleTime{
+  margin: 10px 10px;
+  padding: 10px 10px;
+  background-color: dodgerblue;
+  color: white;
+}
+.StyleTime p{
+  font-size: 35px;
+}
