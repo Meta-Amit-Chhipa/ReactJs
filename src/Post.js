@@ -1,5 +1,6 @@
 import React from 'react'
 import { MdOutlineMessage} from 'react-icons/md';
+import PostDetail from './Details';
 
 export class CreatePost extends React.Component{
     constructor(props){
@@ -27,7 +28,6 @@ export class CreatePost extends React.Component{
                 <div className="title">
                 <h3>Comment Box  </h3>
                 </div>
-                {/* <i class="fa-solid fa-message-captions"></i> */}
                 <div className="tab">
                     {
                         this.state.data.map((button,i)=>(
@@ -43,8 +43,7 @@ export class CreatePost extends React.Component{
                          <div className="TitleIcons">
                          <MdOutlineMessage style={{color:'red',marginLeft:'20px'}}/>
                          </div>
-                         <h3>{this.state.data[this.state.CurrTab].title}</h3>
-                         <p>{this.state.data[this.state.CurrTab].desc}</p>
+                          <PostDetail CurrentTitle={this.state.data[this.state.CurrTab].title} CurrentDescription= {this.state.data[this.state.CurrTab].desc}/>
                         </>
                     }
                 </div>
