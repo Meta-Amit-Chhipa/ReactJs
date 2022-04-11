@@ -1,6 +1,7 @@
 import React from 'react'
 import { MdOutlineMessage} from 'react-icons/md';
 import PostDetail from './Details';
+import PostList from './PostList';
 
 export class CreatePost extends React.Component{
     constructor(props){
@@ -31,19 +32,20 @@ export class CreatePost extends React.Component{
                 <div className="tab">
                     {
                         this.state.data.map((button,i)=>(
-                            <button key={button.id} className="tablinks" onClick={()=>this.ClickedTab(i)} className="btn">
+                            <button key={button.id} className="tablinks" onClick={()=>this.ClickedTab(i)}>
                             Comment {button.id} </button>
                         ))
                     }
                 </div>
                 <div className="tabContent">
                     {
-                        this.state.CurrTab!=-1 &&
+                        this.state.CurrTab!==-1 &&
                         <>
                          <div className="TitleIcons">
                          <MdOutlineMessage style={{color:'red',marginLeft:'20px'}}/>
                          </div>
-                          <PostDetail CurrentTitle={this.state.data[this.state.CurrTab].title} CurrentDescription= {this.state.data[this.state.CurrTab].desc}/>
+                          <PostList CurrentTitle={this.state.data[this.state.CurrTab].title} />
+                          <PostDetail CurrentDescription= {this.state.data[this.state.CurrTab].desc}/>
                         </>
                     }
                 </div>
