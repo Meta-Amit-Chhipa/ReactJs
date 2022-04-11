@@ -1,0 +1,25 @@
+body{
+  font-family: 'Times New Roman', Times, serif;
+}
+.ItemBox{
+  width: 400px;
+  height: 400px;
+  border: 2px solid black;
+  margin-top: 100px;
+}
+h5{
+  margin: 10px 10px;
+  padding: 10px 10px;
+}
+h3{
+  font-size: 20px;
+  font-weight: bold;
+}
+.Icon{
+  float:right;
+  margin-top: -70px;
+}
+.Avatar{
+  float: left;
+  margin:12px 15px;
+}
