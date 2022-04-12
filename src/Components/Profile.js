@@ -1,20 +1,28 @@
 import React from 'react'
+import { Button,Modal } from 'react-bootstrap';
 import './ComponentStyle.css'
-const ProfilePage=({Userdata})=>{
+function ProfilePage(props){
     return(
-        <div className="App">
-            <div className="ImagePreview">
-            <img src={Userdata.ProfileImage} className="rounded-circle"/>
-            </div>
-            <div className="UserDataPreview">
-            <h5>UserName:{Userdata.UserName}</h5>
-            <h5>UserEmail:{Userdata.UserEmail}</h5>
-            <h5>Mobile:{Userdata.UserPhone}</h5>
-            <h5>Age:{Userdata.UserAge}</h5>
-            <h5>Gander:{Userdata.UserGander}</h5>
-            <h5>User Address : {Userdata.UserAddress}</h5>
-            </div>
-        </div>
+        <Modal show={props.ModalShow} onHide={props.Hide}>
+              <Modal.Header>
+                 <Modal.Title className="center">
+                   <img src={props.Userdata.UserImage} alt="Profile_Picture" className="rounded-circle"/>
+                 </Modal.Title>
+                </Modal.Header>
+                <Modal.Body className="center">
+                    <p><label>Name: {props.Userdata.UserName}</label></p>
+                    <p><label>Email: {props.Userdata.UserEmail}</label></p>
+                    <p><label>Mobile: {props.Userdata.UserPhone}</label></p>
+                    <p><label>Age: {props.Userdata.UserAge}</label></p>
+                    <p><label>Gander: {props.Userdata.UserGander}</label></p>
+                    <p><label>Address: {props.Userdata.UserAddress}</label></p>
+                </Modal.Body>
+                 <Modal.Footer>
+                <Button variant="secondary" onClick={props.Hide}>
+                   Cancle
+                </Button>
+             </Modal.Footer>
+        </Modal>
     )
 }
 export default ProfilePage;
