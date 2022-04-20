@@ -6,16 +6,16 @@
   width: 450px;
   margin-left: 400px;
 }
-.title{
+.Title{
   background-color: gray;
   padding: 12px 10px;
 }
-.title h3{
+.Title h3{
   color: white;
   font-family: 'Times New Roman', Times, serif;
   font-size: 22px;
 }
-.tab button{
+.Tab button{
   display: block;
   background-color: inherit;
   color: black;
@@ -28,26 +28,26 @@
   transition: 0.3s;
   font-size: 17px;
 }
-.tab button:hover {
+.Tab button:hover {
   background-color: #ddd;
 }
 
 /* Create an active/current "tab button" class */
-.tab button.active {
+.Tab button.active {
   background-color:gray;
 }
-.tabContent{
+.TabContent{
   float: right;
   border-top: 1px solid black;
   width: 70%;
   margin-top: -330px;
   font-family: 'Times New Roman', Times, serif;
 }
-.tabContent h3{
+.TabContent h3{
   border-bottom: 2px solid black;
 }
 
-.tabContent p{
+.TabContent p{
   margin-top: 100px;
 }
 
