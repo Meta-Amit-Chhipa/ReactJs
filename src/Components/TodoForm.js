@@ -1,13 +1,10 @@
 import React from "react";
-import * as uuid from "uuid";
-export class TodoForm extends React.Component {
+export class TodoForm extends React.Component { 
     constructor(props) {
         super(props)
         this.state = {
-            id: uuid.v4(),
-            items: [],
             Title: '',
-            Description: ''
+            Description:''
         }
     }
     HandleChange = (Event) => {
@@ -22,20 +19,11 @@ export class TodoForm extends React.Component {
     }
     HandleSubmit = (Event) => {
         Event.preventDefault()
-        const NewItem = {
-            id: this.state.id,
-            Title: this.state.title,
-            Description: this.state.description,
-            completed: false
-        }
-        const UpdateItems = [...this.state.items, NewItem];
+        this.props.addItems(this.state.Title,this.state.Description)
         this.setState({
-            id: uuid.v4(),
-            items: UpdateItems,
-            Title: '',
-            Description: ''
+            Title:'',
+            Description:''
         })
-        this.props.parentCallback(UpdateItems)
     }
     render() {
         return (
