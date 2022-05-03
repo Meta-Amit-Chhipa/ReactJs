@@ -7,13 +7,32 @@ export default class MainFile extends React.Component {
     constructor() {
         super()
         this.state = {
-            ShowItem: "all",
-            Items: []
+            Items: [
+                {
+                    Title: '',
+                    Description: '',
+                    Completed: ''
+                }
+            ],
         }
     }
-    handleCallback = (FinalData) => {
+    addItems = (value, description) => {
         this.setState({
-            Items: FinalData,
+            Items: [...this.state.Items, { Title: value, Description: description, Completed: false }]
+        })
+    }
+    deleteItem = (id) => {
+        const todos = this.state.Items.filter((todo, todoIndex) => todoIndex !== id)
+        this.setState({ Items: todos })
+    }
+    MarkItem = (id) => {
+        this.setState({
+            todos: this.state.Items.map((todo, index) => {
+                if (index === id) {
+                    todo.Completed = !todo.Completed
+                }
+                return todo;
+            })
         })
     }
     render() {
@@ -23,8 +42,8 @@ export default class MainFile extends React.Component {
                     <Router>
                         <Navigation />
                         <Routes>
-                            <Route exact path="/" element={<TodoForm parentCallback={this.handleCallback} />} />
-                            <Route exact path="/list/*" element={<TodoList FinalItems={this.state.Items} />} />
+                            <Route exact path="/" element={<TodoForm addItems={this.addItems} />} />
+                            <Route exact path="/list" element={<TodoList FinalItems={this.state.Items} deleteItem={this.deleteItem} MarkItem={this.MarkItem} />} />
                         </Routes>
                     </Router>
                 </div>
